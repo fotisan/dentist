@@ -277,8 +277,6 @@ ul {
   background: #111827;
 }
 
-/* For real projects, you'd add JS to toggle a mobile drawer. */
-
 /* =========================================================
    HERO
 ========================================================= */
@@ -997,7 +995,6 @@ textarea:focus-visible {
 
 /* =========================================================
    SIMPLE SCROLL-STYLE ANIMATIONS
-   (On load; can be wired to JS IntersectionObserver in Webflow/WP)
 ========================================================= */
 [data-animate] {
   opacity: 0;
