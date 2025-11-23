@@ -1049,6 +1049,15 @@ textarea:focus-visible {
     margin-top: 0;
   }
 
+  /* ★ FIX ΓΙΑ ΤΟ ABOUT ΣΤΟ DESKTOP */
+  .about .section-heading {
+    grid-column: 1 / span 6;
+  }
+
+  .about .about-layout {
+    grid-column: 1 / span 12;
+  }
+
   .about-layout {
     grid-template-columns: minmax(0, 1.1fr) minmax(0, 1.1fr);
     align-items: center;
