@@ -269,6 +269,7 @@ ul {
   border-color: rgba(77, 123, 255, 0.35);
 }
 
+/* Mobile nav toggle */
 .nav-toggle {
   width: 38px;
   height: 38px;
@@ -360,27 +361,169 @@ ul {
   color: var(--text-soft);
 }
 
-/* HERO IMAGE FIXED */
+/* Hero card */
+.hero-visual {
+  margin-top: 2.5rem;
+}
+
+.hero-card {
+  background: radial-gradient(circle at top left, #fdfbff 0, #ffffff 55%);
+  border-radius: 28px;
+  box-shadow: var(--shadow-soft);
+  overflow: visible;
+  border: 1px solid rgba(148, 163, 184, 0.25);
+  padding: 1.1rem 1.1rem 1.25rem;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+}
+
+/* HERO IMAGE */
 .hero-photo {
-  min-height: 190px;
+  min-height: 210px;
+  border-radius: 22px;
   background-image: linear-gradient(
       to bottom,
-      rgba(9, 12, 40, 0.05),
-      rgba(9, 12, 40, 0.55)
+      rgba(9, 12, 40, 0.08),
+      rgba(9, 12, 40, 0.45)
     ),
     url("hero-dental-studio.png");
   background-size: cover;
   background-position: center;
 }
 
-.hero-card {
-  background: var(--bg-elevated);
-  border-radius: 28px;
-  box-shadow: var(--shadow-soft);
-  overflow: hidden;
-  border: 1px solid rgba(148, 163, 184, 0.25);
+/* Content "card" κάτω από την εικόνα αλλά με καλύτερο UI */
+.hero-card-content {
+  position: relative;
+  margin-top: -2rem;
+  padding: 1.4rem 1.35rem 1.2rem;
+  border-radius: 18px;
+  background: rgba(255, 255, 255, 0.96);
+  backdrop-filter: blur(10px);
+  box-shadow: 0 18px 40px rgba(15, 23, 42, 0.22);
+}
+
+.hero-card-content h2 {
+  font-family: "Playfair Display", serif;
+  font-size: 1.3rem;
+  letter-spacing: -0.02em;
+  margin-bottom: 0.4rem;
+}
+
+.hero-card-content p {
+  font-size: 0.9rem;
+  color: var(--text-muted);
+  margin-bottom: 0.7rem;
+}
+
+.hero-list {
+  display: grid;
+  gap: 0.35rem;
+  padding-left: 0;
+}
+
+.hero-list li {
+  font-size: 0.86rem;
+  color: var(--text-main);
+  position: relative;
+  padding-left: 1.1rem;
+}
+
+.hero-list li::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0.5em;
+  width: 6px;
+  height: 6px;
+  border-radius: 999px;
+  background: linear-gradient(135deg, var(--accent), var(--gold));
+}
+
+/* Badge στο κάτω μέρος */
+.hero-badge {
+  margin-top: 0.7rem;
+  padding: 0.75rem 1.1rem;
+  border-radius: 999px;
+  background: linear-gradient(90deg, #fefbf5, #f5ebd7);
   display: flex;
-  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 0.8rem;
+}
+
+.hero-badge span {
+  color: var(--gold);
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+.hero-badge strong {
+  color: #8b6a2d;
+}
+
+/* =========================================================
+   BUTTONS
+========================================================= */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.4rem;
+  padding: 0.7rem 1.4rem;
+  border-radius: 999px;
+  font-size: 0.9rem;
+  border: 1px solid transparent;
+  transition: transform var(--transition-fast),
+    box-shadow var(--transition-fast), background var(--transition-fast),
+    border-color var(--transition-fast), color var(--transition-fast);
+  position: relative;
+  overflow: hidden;
+}
+
+.btn::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(
+    circle at 10% 0,
+    rgba(255, 255, 255, 0.7),
+    transparent 52%
+  );
+  opacity: 0;
+  transition: opacity 200ms ease-out;
+}
+
+.btn-primary {
+  background: linear-gradient(135deg, var(--accent), var(--accent-strong));
+  color: #ffffff;
+  box-shadow: 0 14px 28px rgba(77, 123, 255, 0.4);
+}
+
+.btn-ghost {
+  border-color: rgba(148, 163, 184, 0.4);
+  background: rgba(255, 255, 255, 0.9);
+  color: var(--text-main);
+}
+
+.btn:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 18px 34px rgba(15, 23, 42, 0.18);
+}
+
+.btn:hover::after {
+  opacity: 1;
+}
+
+.btn:active {
+  transform: translateY(0);
+  box-shadow: 0 8px 16px rgba(15, 23, 42, 0.16);
+}
+
+.btn:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
 }
 
 /* =========================================================
@@ -432,6 +575,7 @@ ul {
   font-weight: 500;
 }
 
+/* About visuals */
 .about-visual {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -444,14 +588,14 @@ ul {
   background-position: center;
 }
 
-/* MAIN ABOUT IMAGE – OK */
+/* MAIN ABOUT IMAGE */
 .about-photo-main {
   grid-column: span 2;
   min-height: 220px;
   background-image: url("about-dental-studio-main.png");
 }
 
-/* SECONDARY REMOVED */
+/* SECONDARY HIDDEN */
 .about-photo-secondary {
   display: none;
 }
@@ -497,10 +641,15 @@ ul {
   color: var(--text-main);
 }
 
-/* =========================================================
-   TESTIMONIALS
-========================================================= */
+.service-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 20px 44px rgba(15, 23, 42, 0.16);
+  border-color: rgba(77, 123, 255, 0.4);
+}
 
+/* =========================================================
+   TESTIMONIALS (slider)
+========================================================= */
 .testimonials {
   background: #ffffff;
 }
@@ -536,23 +685,65 @@ ul {
   transition: opacity 280ms ease-out, transform 280ms ease-out;
 }
 
+.testimonial-text {
+  font-size: 0.98rem;
+  color: var(--text-main);
+  margin-bottom: 1.1rem;
+}
+
+.testimonial-name {
+  font-weight: 600;
+  font-size: 0.9rem;
+}
+
+.testimonial-meta {
+  font-size: 0.8rem;
+  color: var(--text-soft);
+}
+
 #t-1:checked ~ .testimonial-slides .testimonial:nth-child(1),
 #t-2:checked ~ .testimonial-slides .testimonial:nth-child(2),
 #t-3:checked ~ .testimonial-slides .testimonial:nth-child(3) {
   opacity: 1;
   transform: translateY(0);
+  position: relative;
+}
+
+.testimonial-nav {
+  margin-top: 1.6rem;
+  display: flex;
+  justify-content: center;
+  gap: 0.45rem;
+}
+
+.testimonial-nav label {
+  width: 9px;
+  height: 9px;
+  border-radius: 999px;
+  border: 1px solid rgba(148, 163, 184, 0.8);
+  background: #ffffff;
+  cursor: pointer;
+  transition: background var(--transition-med), transform var(--transition-med),
+    border-color var(--transition-med);
+}
+
+#t-1:checked ~ .testimonial-nav label:nth-child(1),
+#t-2:checked ~ .testimonial-nav label:nth-child(2),
+#t-3:checked ~ .testimonial-nav label:nth-child(3) {
+  background: linear-gradient(135deg, var(--accent), var(--gold));
+  transform: scale(1.2);
+  border-color: transparent;
 }
 
 /* =========================================================
    DOCTOR SECTION
 ========================================================= */
-
 .doctor-layout {
   align-items: center;
   gap: 2.6rem;
 }
 
-/* DOCTOR – FIXED CROP + BETTER HEIGHT */
+/* DOCTOR IMAGE */
 .doctor-photo {
   width: 100%;
   min-height: 330px;
@@ -568,18 +759,177 @@ ul {
   box-shadow: var(--shadow-soft);
 }
 
-/* =========================================================
-   CONTACT
-========================================================= */
+.doctor-content p {
+  color: var(--text-muted);
+  font-size: 0.96rem;
+}
 
+.doctor-content h2 {
+  font-family: "Playfair Display", serif;
+  font-size: 2rem;
+  margin-bottom: 0.5rem;
+}
+
+.doctor-list {
+  margin-top: 1rem;
+  display: grid;
+  gap: 0.4rem;
+  font-size: 0.9rem;
+}
+
+.doctor-list li {
+  position: relative;
+  padding-left: 1rem;
+}
+
+.doctor-list li::before {
+  content: "•";
+  position: absolute;
+  left: 0;
+  top: 0;
+  color: var(--accent);
+}
+
+.doctor-badges {
+  margin-top: 1.1rem;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.45rem;
+}
+
+.badge {
+  font-size: 0.78rem;
+  padding: 0.3rem 0.65rem;
+  border-radius: 999px;
+  background: var(--accent-soft);
+  color: var(--accent-strong);
+}
+
+/* =========================================================
+   CONTACT & MAP
+========================================================= */
 .contact {
   background: radial-gradient(circle at top center, #eef3ff 0, #f5f7fb 45%);
+}
+
+.contact-layout {
+  display: grid;
+  gap: 2.8rem;
+}
+
+.contact-form-wrapper {
+  background: #ffffff;
+  border-radius: 24px;
+  padding: 1.9rem 1.8rem;
+  border: 1px solid rgba(148, 163, 184, 0.35);
+  box-shadow: var(--shadow-subtle);
+}
+
+.contact-form {
+  margin-top: 1.4rem;
+}
+
+.form-row {
+  display: grid;
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+
+.form-field {
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+}
+
+.form-field label {
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  color: var(--text-soft);
+}
+
+input[type="text"],
+input[type="email"],
+input[type="tel"],
+select,
+textarea {
+  border-radius: 999px;
+  border: 1px solid rgba(148, 163, 184, 0.55);
+  padding: 0.75rem 0.85rem;
+  font-size: 0.9rem;
+  background: #fbfcff;
+  transition: border-color var(--transition-fast),
+    box-shadow var(--transition-fast), background var(--transition-fast);
+}
+
+textarea {
+  border-radius: 16px;
+  resize: vertical;
+  min-height: 120px;
+}
+
+input:focus-visible,
+select:focus-visible,
+textarea:focus-visible {
+  outline: none;
+  border-color: var(--accent);
+  box-shadow: 0 0 0 1px rgba(77, 123, 255, 0.4);
+  background: #ffffff;
+}
+
+.form-footer {
+  margin-top: 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.55rem;
+}
+
+.form-note {
+  font-size: 0.8rem;
+  color: var(--text-soft);
+}
+
+/* Map side */
+.contact-map-wrapper {
+  display: flex;
+  align-items: stretch;
+}
+
+.map-card {
+  background: #ffffff;
+  border-radius: 24px;
+  border: 1px solid rgba(148, 163, 184, 0.35);
+  box-shadow: var(--shadow-subtle);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+.map-info {
+  padding: 1.4rem 1.5rem 0.9rem;
+}
+
+.map-info h3 {
+  font-family: "Playfair Display", serif;
+  font-size: 1.3rem;
+  margin-bottom: 0.3rem;
+}
+
+.map-info p {
+  font-size: 0.9rem;
+  color: var(--text-muted);
+}
+
+.map-embed iframe {
+  width: 100%;
+  height: 240px;
+  display: block;
 }
 
 /* =========================================================
    FOOTER
 ========================================================= */
-
 .site-footer {
   background: #0b1020;
   color: #e5e7f5;
@@ -587,10 +937,133 @@ ul {
   margin-top: 2rem;
 }
 
+.footer-grid {
+  display: grid;
+  gap: 2.4rem;
+}
+
+.footer-brand p {
+  margin-top: 0.8rem;
+  font-size: 0.9rem;
+  color: #9ca3c4;
+  max-width: 20rem;
+}
+
+/* Footer logo variant */
+.site-footer .logo-mark {
+  background: radial-gradient(circle at 20% 20%, #7f9dff, #4b5fd1);
+  box-shadow: 0 10px 22px rgba(129, 140, 248, 0.65);
+  border-color: rgba(129, 140, 248, 0.8);
+}
+
+.site-footer .logo-line {
+  background: rgba(248, 250, 252, 0.9);
+}
+
+.site-footer .logo-main {
+  color: #e5e7f5;
+}
+
+.site-footer .logo-sub {
+  color: #9ca3c4;
+}
+
+.footer-block h3 {
+  font-size: 0.95rem;
+  text-transform: uppercase;
+  letter-spacing: 0.16em;
+  margin-bottom: 0.9rem;
+  color: #e5e7f5;
+}
+
+.footer-list li {
+  font-size: 0.9rem;
+  color: #9ca3c4;
+}
+
+.footer-list li + li {
+  margin-top: 0.2rem;
+}
+
+.footer-list a:hover {
+  color: #e5e7f5;
+}
+
+.footer-social {
+  margin-top: 0.9rem;
+  display: flex;
+  gap: 0.6rem;
+}
+
+.footer-social a {
+  width: 30px;
+  height: 30px;
+  border-radius: 999px;
+  border: 1px solid rgba(156, 163, 175, 0.7);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.75rem;
+  transition: background var(--transition-fast),
+    border-color var(--transition-fast), transform var(--transition-fast);
+}
+
+.footer-social a:hover {
+  background: linear-gradient(135deg, var(--accent), var(--gold));
+  border-color: transparent;
+  transform: translateY(-1px);
+}
+
+.footer-bottom {
+  margin-top: 2rem;
+  padding-top: 1.1rem;
+  border-top: 1px solid rgba(55, 65, 81, 0.6);
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+  font-size: 0.8rem;
+  color: #6b7280;
+}
+
+.footer-bottom a {
+  color: #9ca3c4;
+}
+
+.footer-bottom a:hover {
+  color: #e5e7f5;
+}
+
+/* =========================================================
+   SIMPLE SCROLL ANIMATIONS
+========================================================= */
+[data-animate] {
+  opacity: 0;
+  transform: translateY(18px);
+  animation: fadeUp 700ms ease-out forwards;
+}
+
+[data-animate="fade-up-delayed"] {
+  animation-delay: 160ms;
+}
+
+@keyframes fadeUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
 /* =========================================================
    RESPONSIVE BREAKPOINTS
 ========================================================= */
-
 @media (min-width: 768px) {
   .primary-nav {
     display: flex;
@@ -632,6 +1105,10 @@ ul {
     min-height: 300px;
   }
 
+  .services-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
   .doctor-photo {
     grid-column: 1 / span 5;
     min-height: 420px;
@@ -639,6 +1116,26 @@ ul {
 
   .doctor-content {
     grid-column: 6 / span 7;
+  }
+
+  .contact-layout {
+    grid-template-columns: minmax(0, 1.3fr) minmax(0, 1.1fr);
+    align-items: stretch;
+  }
+
+  .map-embed iframe {
+    height: 280px;
+  }
+
+  .footer-grid {
+    grid-template-columns: 1.3fr 1fr 1fr;
+    align-items: flex-start;
+  }
+
+  .footer-bottom {
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
   }
 }
 
@@ -649,6 +1146,31 @@ ul {
 
   .section {
     padding: 5rem 0;
+  }
+
+  .hero-card {
+    transform: translateY(8px) translateX(10px) rotate(-1.2deg);
+  }
+
+  .hero-card:hover {
+    transform: translateY(0) translateX(0) rotate(0deg);
+  }
+
+  .services-grid {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+
+  .testimonial-slider {
+    padding-inline: 2.4rem;
+  }
+
+  .contact-form-wrapper,
+  .map-card {
+    padding: 2.1rem 2rem;
+  }
+
+  .map-embed iframe {
+    height: 320px;
   }
 
   .doctor-photo {
