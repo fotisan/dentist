@@ -32,7 +32,8 @@
           </span>
         </a>
 
-        <nav class="primary-nav">
+        <!-- Desktop nav -->
+        <nav class="primary-nav" aria-label="Primary">
           <a href="#about">About</a>
           <a href="#services">Services</a>
           <a href="#testimonials">Testimonials</a>
@@ -40,10 +41,64 @@
           <a href="#contact" class="nav-cta">Book a Visit</a>
         </nav>
 
-        <button class="nav-toggle" aria-label="Toggle navigation">
-          <span></span><span></span>
+        <!-- Mobile toggle -->
+        <button
+          class="nav-toggle"
+          type="button"
+          aria-label="Open menu"
+          aria-controls="mobile-menu"
+          aria-expanded="false"
+        >
+          <span class="nav-toggle-icon" aria-hidden="true">
+            <span></span><span></span><span></span>
+          </span>
         </button>
       </div>
+
+      <!-- Mobile backdrop -->
+      <div class="mobile-backdrop" data-mobile-close hidden></div>
+
+      <!-- Mobile drawer -->
+      <aside
+        id="mobile-menu"
+        class="mobile-drawer"
+        aria-label="Mobile menu"
+        hidden
+      >
+        <div class="mobile-drawer-top">
+          <div class="mobile-brand">
+            <span class="logo-mark"><span class="logo-line"></span></span>
+            <div class="mobile-brand-text">
+              <span class="mobile-brand-main">Azure</span>
+              <span class="mobile-brand-sub">Dental Studio</span>
+            </div>
+          </div>
+
+          <button
+            class="mobile-close"
+            type="button"
+            aria-label="Close menu"
+            data-mobile-close
+          >
+            <span aria-hidden="true">×</span>
+          </button>
+        </div>
+
+        <nav class="mobile-nav" aria-label="Mobile">
+          <a href="#about">About</a>
+          <a href="#services">Services</a>
+          <a href="#testimonials">Testimonials</a>
+          <a href="#doctor">Doctor</a>
+          <a href="#contact" class="mobile-cta">Book a Visit</a>
+        </nav>
+
+        <div class="mobile-meta">
+          <a class="mobile-mini" href="tel:+15551234567">Call (555) 123-4567</a>
+          <a class="mobile-mini" href="mailto:hello@azuredentalstudio.com"
+            >hello@azuredentalstudio.com</a
+          >
+        </div>
+      </aside>
     </header>
 
     <main id="top">
@@ -62,7 +117,7 @@
 
             <div class="hero-actions">
               <a href="#contact" class="btn btn-primary">Book an Appointment</a>
-              <button class="btn btn-ghost">Call (555) 123-4567</button>
+              <button class="btn btn-ghost" type="button">Call (555) 123-4567</button>
             </div>
 
             <div class="hero-meta">
@@ -110,7 +165,6 @@
       <!-- ABOUT -->
       <section class="section about" id="about">
         <div class="shell grid-12">
-
           <div class="section-heading" data-animate="fade-up">
             <p class="eyebrow">About the Clinic</p>
             <h2>Modern, serene dentistry with meticulous detail.</h2>
@@ -240,8 +294,13 @@
           </div>
 
           <div class="testimonial-slider" data-animate="fade-up-delayed">
-
-            <input type="radio" name="testimonial" id="t-1" class="slider-input" checked />
+            <input
+              type="radio"
+              name="testimonial"
+              id="t-1"
+              class="slider-input"
+              checked
+            />
             <input type="radio" name="testimonial" id="t-2" class="slider-input" />
             <input type="radio" name="testimonial" id="t-3" class="slider-input" />
 
@@ -326,7 +385,6 @@
       <!-- CONTACT -->
       <section class="section contact" id="contact">
         <div class="shell contact-layout" data-animate="fade-up">
-
           <div class="contact-form-wrapper">
             <p class="eyebrow">Book Your Visit</p>
             <h2>Request a private appointment.</h2>
@@ -394,14 +452,13 @@
                 <iframe
                   title="Azure Dental Studio on Google Maps"
                   src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3303.906030252932!2d-118.4018263!3d34.0736208!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x80c2bba3c0a2b6b3%3A0x5f3e4d8e5d04!2sBeverly%20Hills%2C%20CA!5e0!3m2!1sen!2sus!4v1700000000000"
-                  style="border:0;"
+                  style="border: 0"
                   loading="lazy"
-                  allowfullscreen>
-                </iframe>
+                  allowfullscreen
+                ></iframe>
               </div>
             </div>
           </div>
-
         </div>
       </section>
     </main>
@@ -418,7 +475,8 @@
             </span>
           </a>
           <p>
-            Discreet, luxury dental care in the heart of California. By appointment only.
+            Discreet, luxury dental care in the heart of California. By appointment
+            only.
           </p>
         </div>
 
@@ -427,7 +485,7 @@
           <ul class="footer-list">
             <li>Mon – Thu: 8:30 AM – 6:00 PM</li>
             <li>Friday: 9:00 AM – 3:00 PM</li>
-            <li>Sat & Sun: By arrangement</li>
+            <li>Sat &amp; Sun: By arrangement</li>
           </ul>
         </div>
 
@@ -435,7 +493,11 @@
           <h3>Contact</h3>
           <ul class="footer-list">
             <li><a href="tel:+15551234567">(555) 123-4567</a></li>
-            <li><a href="mailto:hello@azuredentalstudio.com">hello@azuredentalstudio.com</a></li>
+            <li>
+              <a href="mailto:hello@azuredentalstudio.com"
+                >hello@azuredentalstudio.com</a
+              >
+            </li>
             <li>Beverly Hills, CA 90210</li>
           </ul>
           <div class="footer-social">
@@ -452,5 +514,89 @@
       </div>
     </footer>
 
+    <!-- Mobile menu script -->
+    <script>
+      (function () {
+        const toggle = document.querySelector(".nav-toggle");
+        const drawer = document.getElementById("mobile-menu");
+        const backdrop = document.querySelector(".mobile-backdrop");
+        const closeButtons = document.querySelectorAll("[data-mobile-close]");
+        const focusableSelector =
+          'a[href], button:not([disabled]), textarea, input, select, [tabindex]:not([tabindex="-1"])';
+
+        if (!toggle || !drawer || !backdrop) return;
+
+        let lastFocused = null;
+
+        function setOpen(open) {
+          toggle.setAttribute("aria-expanded", String(open));
+          toggle.classList.toggle("is-open", open);
+
+          drawer.hidden = !open;
+          backdrop.hidden = !open;
+
+          document.documentElement.classList.toggle("nav-open", open);
+          document.body.classList.toggle("nav-open", open);
+
+          if (open) {
+            lastFocused = document.activeElement;
+            // focus first link
+            const first = drawer.querySelector(focusableSelector);
+            if (first) first.focus({ preventScroll: true });
+          } else {
+            if (lastFocused && typeof lastFocused.focus === "function") {
+              lastFocused.focus({ preventScroll: true });
+            }
+          }
+        }
+
+        function isOpen() {
+          return toggle.getAttribute("aria-expanded") === "true";
+        }
+
+        toggle.addEventListener("click", () => setOpen(!isOpen()));
+
+        closeButtons.forEach((btn) =>
+          btn.addEventListener("click", () => setOpen(false))
+        );
+
+        // Close on link click (mobile)
+        drawer.addEventListener("click", (e) => {
+          const a = e.target.closest("a");
+          if (a) setOpen(false);
+        });
+
+        // Close on ESC
+        document.addEventListener("keydown", (e) => {
+          if (e.key === "Escape" && isOpen()) setOpen(false);
+        });
+
+        // Basic focus trap (when open)
+        document.addEventListener("keydown", (e) => {
+          if (!isOpen() || e.key !== "Tab") return;
+
+          const focusables = Array.from(
+            drawer.querySelectorAll(focusableSelector)
+          ).filter((el) => el.offsetParent !== null);
+
+          if (!focusables.length) return;
+
+          const first = focusables[0];
+          const last = focusables[focusables.length - 1];
+
+          if (e.shiftKey && document.activeElement === first) {
+            e.preventDefault();
+            last.focus();
+          } else if (!e.shiftKey && document.activeElement === last) {
+            e.preventDefault();
+            first.focus();
+          }
+        });
+
+        // Year
+        const year = document.getElementById("year");
+        if (year) year.textContent = new Date().getFullYear();
+      })();
+    </script>
   </body>
 </html>
